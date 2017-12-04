@@ -3,46 +3,97 @@
 <head>
     <title>Chain Counter</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Chain Counter - A Tool for Counting SOS Chains in Pokemon!">
     <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/pokesprite.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/counter.js"></script>
-    <script src="js/pokesprite.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/night-mode.min.js"></script>
 </head>
 <body>
-<div class="center text-align">
-    <button type="button" onclick='clickMinus()'>-1</button>
-    <button class="plus-button" type="button" onclick='clickPlus()'>+1</button>
-    <br><br>
-    <p style="font-size:30px;">Chain no: <a id="counterValue">0</a></p>
-    <div id="messageBox">No guaranteed IVs, 0% HA Chance, low shiny chance</div>
-    <br>
-    <form action="index.html">
-        <button class="reset-button" type="submit">Reset</button>
-    </form>
-    <br>
-    <div id="outer">
-        <div class="inner">
-            <form action="more.html" target="_blank">
-                <button type="submit">Chaining info</button>
-            </form>
+<main role="main" class="container">
+    <div class="centerFold">
+        <div class="row">
+            <div class="col-lg-12">
+                <button class="btn btn-default btnCenter" type="button" onclick='clickMinus()'>-1</button>
+                <button class="btn btn-success btnCenter" type="button" onclick='clickPlus()'>+1</button>
+            </div>
         </div>
-        <div class="inner">
-            <form action="night-mode/night.html">
-                <button type="submit">Night mode</button>
-            </form>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Chain no: <a id="counterValue">0</a></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="messageBox">No guaranteed IVs, 0% HA Chance, low shiny chance</div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <button class="btn btn-danger btnCenter" type="button" onclick="window.location.reload()">Reset
+                </button>
+                <button class="btn btn-primary btnCenter" type="button" data-toggle="modal"
+                        data-target=".bd-example-modal-lg">Chaining Info
+                </button>
+                <button class="btn btn-default btnCenter" type="button" onclick="var nightMode = new NightMode();">Night
+                    Mode
+                </button>
+            </div>
         </div>
     </div>
-</div>
-<script type="text/javascript">
-    PkSpr.process_dom();
-</script>
-<!-- Currently useless in code without an actual way to use it lol -->
-<script src="js/mousetrap.min.js"></script>
+    <div class="modal fade bd-example-modal-lg dark" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Chaining Information</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>IVs</h3>
+                    <ul>
+                        <li>0 - 4: No guaranteed IVs</li>
+                        <li>5 - 9: 1 perfect IV</li>
+                        <li>10 - 19: 2 perfect IVs</li>
+                        <li>20 - 29: 3 perfect IVs</li>
+                        <li>30 - 255: 4 perfect IVs</li>
+                    </ul>
+                    <h3>Hidden abilities</h3>
+                    <ul>
+                        <li>0 - 9: 0% chance</li>
+                        <li>10 - 19: 5% chance</li>
+                        <li>20 - 29: 10% chance</li>
+                        <li>30 - 255: 15% chance</li>
+                    </ul>
+
+                    <h3>Shiny</h3>
+
+                    <p>70 - 255 gives you a 1/1024 chance of encountering a shiny. If you have the shiny charm, it is
+                        1/683.</p>
+
+                    <p><b>Note:</b> that this is given to you live under the counter!</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 </body>
 </html>
