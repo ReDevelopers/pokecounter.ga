@@ -15,3 +15,7 @@ body.night {
 .dark {
     color: #000000;
 }
+
+.row-marg {
+    margin-top: 30px;
+}
