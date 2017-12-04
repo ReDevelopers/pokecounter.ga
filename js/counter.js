@@ -1,4 +1,3 @@
-var none = 0;
 var max = Number.MAX_SAFE_INTEGER;
 var min = Number.MIN_SAFE_INTEGER;
 
